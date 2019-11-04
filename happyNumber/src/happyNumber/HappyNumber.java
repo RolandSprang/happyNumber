@@ -21,10 +21,12 @@ public class HappyNumber {
 	 * @return a string containing every 'happy number' in the given range
 	 */
 	public String getHappyNumbers(int from, int to) {
-		String happyNumbers = null;
-		for(int i = from; i<= to; i++)
+		String happyNumbers = "";
+		for(int i = from; i<= to; i++) {
+			checktNoList.clear();
 			if(isHappy(i))
 				happyNumbers += i + ";";
+		}
 		return happyNumbers;
 	}
 	
@@ -40,7 +42,7 @@ public class HappyNumber {
 		if(no == 1)
 			return true;
 		
-		if(!checktNoList.isEmpty() || checktNoList.contains(no))
+		if(!checktNoList.isEmpty() && checktNoList.contains(no))
 			return false;
 		checktNoList.add(no);
 		
